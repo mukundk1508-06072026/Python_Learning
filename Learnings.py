@@ -4,7 +4,7 @@ print("This will be marking all the practice scripts and learnings related to py
 resources = "https://www.udemy.com/share/103J8C3@5X4F98BK-9gGlp3buD_tyLnpMinHJvQmUdsLddBftMp9ESSx2lcl2JJoqULUzSZl/"
 print(resources);'''
 ###########################################################################################################################################
-## Day 1 :- Printing, Commenting, Debugging, String Manupiulation and Variable Names.
+## Day 1 :- Printing, Commenting, Debugging, String Manupiulation and Variable Names.######################################################
 ## print => used to print your onto the console. Pretty useful for debugging at timees
 ## String => set of characters or say an array of characters;
 ## Syntax error => its generally indicated with red. tells you that you have messed up 
@@ -77,6 +77,92 @@ print(glass1,glass2)'''
 City  = input("Enter the city that you have grown up in:- " )
 Pet_Name = input("Enter a pet NAME :- ")
 BandName = City+" "+Pet_Name
-print(f"You band name is {BandName}")'''
+print(f"You band name is {BandName}") ## this is an fstring'''
 ######################################################################################
+## Day 2 => Data Types, Numbers, Operators, Type Conversion , f-strings ##############
+## using the len() method we can get the number of characters in a string 
+## Example:- 
+'''char_len = len(input("Enter a string:- "));
+print(f"Total character count {char_len}")'''
+## Data Types :- 
+## 1) String, 2) Integers, 3) Floats 4) Booleans
 
+##strings => collection of characters => 
+'''String = "Khamampati"
+print(String[0]) ## this will give is the first letter of a string 
+## string / array indexing starts with 0 
+print(String[0:3])## gives you the first 3 characters in the said string
+print(String[0:5:2])## gives you 3 characters such that there is a gap of 1 
+## character in between each
+print(String[-1])## when we use negative indices we are getting the string from the 
+## reverse order so here i will be the result
+print(String[-5:-1])## from the last 5th index to the last index this is how it works 
+## Print behaviour ##
+print("123"+"124")## concatenating 2 strings
+print(123+124)## adding 2 numbers
+print("123"+123)## here you must get a type error because you are trying to add a
+## string and an integer which is incorrect because of the way they are occupied in the 
+## memory.
+print(12345+123.5)## here you can see that the int is being converted into float 
+## and the addition takes place this is what we call upcasting and this is done
+## by the interpretter.
+print(12345 + int(12345.123))''' ## This is called downcasting becausr we are 
+## explicitely tellling the interpretter to convert the float number into integer 
+## effectively ignoring the decimal part of the equation.
+
+## FUNCTION / METHODS => pretty simple a re-usable piece of code 
+## You have input arguements and output.
+'''print(type("Error"))
+print(type(12345))
+print(type(12.334))
+print(type(True))'''
+## type() is used to determine the data type of a variable / constant
+## Operators in Python 
+## '+,-,*,/,%',// => these are the arithematic operators 
+## 'and, or,!' => Logical operators
+## '>,<,=,=>,<=,!=' => relational operators
+## '==' => asignment operatoes
+## '**' this is generally for indicating power off
+## all of these have a certain priority order and PEMDAS is something we use
+## for mathematic operators 
+## A Example :- Calculating the body mass index of a person
+'''
+height = float(input("Enter your height in meters:- "))
+weight = float(input("Enter you weight in kilograms:- "))
+bmi =((weight)/(height*height))
+isUnhealthy = False
+print(f"Your BMI is => {bmi}")
+if(bmi>25.0 and bmi<29.9):
+    print("You are over-weight")
+    isUnhealthy =True
+elif(bmi>18.5 and bmi<24.9):
+    print("You are having a healthy weight")
+elif(bmi>30.0):
+    print("You are obese")
+elif(bmi<18.5):
+    print("You are underweight")
+    isUnhealthy = True
+## This is a condition to see if the given person needs to see a doc
+if(isUnhealthy == True):
+    print("Please see a doctor");
+'''
+## Mini Project :- Creating a tip calculator 
+totalAmount = float(input("Please enter the total bill:- "));
+isSplit = False;
+toTip = bool(input("Do you want to tip the person? yes :- type 1 +Enter  no :- press Enter:- "))
+if(toTip == True):
+    tipPercentage = int(input("Please enter the tip percentage:- "))
+    totalAmount = totalAmount*(tipPercentage/100) + totalAmount
+    print(totalAmount);
+
+toSplit = bool(input("Do you want to split the bill? yes :- type 1 +Enter  no :- press Enter:- "))
+if(toSplit == True):
+    split = int(input("How many people to split the bill:- "))
+    isSplit = True
+    totalAmount = totalAmount/split
+    print(totalAmount)
+
+if(isSplit == True):
+    print(f"the amount per person amounts to  {totalAmount}");
+else:
+    print(f"Total amount to be paid is {totalAmount}")
