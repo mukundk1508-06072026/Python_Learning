@@ -443,3 +443,113 @@ elif((userInput == "S" or userInput == "s") and computerInput == 0):
     print("You Lose")
 elif((userInput == "S" or userInput == "s") and computerInput == 1):
     print("you win")'''
+#######################################################################################################################
+## Day 4 :- Looping.
+## In coding in general we have 3 types/flavours of loops 
+## 1) For loop => where the number of iterations is known
+## 2) While loop => where the terminating contition is known but not sure about the number of iterations
+## 3) Do While Loop => like while loop but work is first done before the terminating condition is checked
+## Python has methods called sum() => which allow us to put in any iterable datatype and gives you the sum 
+## of all the elements in the list all of which we can replicate using looping 
+## Here we will have an exercise where we find the following
+## 1) Maximum Value
+## 2) Minimum Value
+## 3) Sum of all elements
+## 4) Average of all elements
+## 5) Mean 
+## 6) Median
+## Input must be user defined with the number of elements and the elements present
+## Note this has to be done without using the math functions and needs to be done using looping and conditionals and list
+'''
+elementCount = int(input("Enter the number of students present in a class: "))
+marks = []
+for i in range(elementCount):
+    temp = float(input(f"Enter roll number{i+1} marks out or 100: "))
+    marks.append(temp)
+print(f"These are the marks that you have entered\n{marks}")
+marks.sort()
+## finding the maximim value
+maxMarks = 0## students marks are out of 100
+for i in marks:
+    if(i>maxMarks):
+        maxMarks = i
+    else:
+        continue
+print(f"The Max marks is {maxMarks}")
+## finding the least value
+leastMarks = 100;
+for i in marks :
+    if(i<leastMarks):
+        leastMarks = i
+    else:
+        continue
+print(f"Least mark is {leastMarks}")
+## calculating the average
+sum = 0
+for i in marks :
+    sum = sum + i
+print(f"Sum of all marks is {sum} and the average is {sum/elementCount}")
+medianMarks =((marks[elementCount//2]+ marks[elementCount//2]-1)/2) if(elementCount%2 == 0)  else marks[elementCount//2]
+print(f"Median mark is {medianMarks}")
+## here "range()" used in conjecture with for is basically incrementing the local variable which we use to iterate through the list
+## in c we write for(int i=0;i<max_number;i++) here this i++ is being done by the range function.
+'''
+### Next challange =>
+## a number divisible by 3 must day "FIZZ" and the number divisible by 5 must say "BUZZ"
+## Maximum number must be given by the user as userInput
+'''
+maximumValue = int(input("Please enter your maximum number: "))
+for num in range(1,maximumValue+1):
+    if(num%3 == 0 and not(num%5 == 0)):
+        print("Fizz")
+    elif(num%5 == 0 and not(num%3 == 0)):
+        print("Buzz")
+    elif(num%3 == 0 and num%5 == 0):
+        print("FizzBuzz")
+    else:
+        print(num)
+'''
+## Next Chalange => Creating a Password generator 
+import random as rand
+numbers = ['0','1','2','3','4','5','6','7','8','9']
+symbols = ['!','#','@','%','$','*']
+alphabets = [
+    'a','b','c','d','e','f','g','h','i','j','k','l','m',
+    'n','o','p','q','r','s','t','u','v','w','x','y','z',
+    'A','B','C','D','E','F','G','H','I','J','K','L','M',
+    'N','O','P','Q','R','S','T','U','V','W','X','Y','Z'
+]
+print("Welcome to a random Password Generator")
+number_count = int(input("Please enter number count needed in password: "))
+symbol_count = int(input("Please enter symbols count needed in password: "))
+alphabet_count = int(input("Please enter alphabet count needed in password: "))
+'''
+## this is where we are taking the easy approach 
+password = "";
+## for number
+for num in range(0,number_count):
+    password += rand.choice(numbers)
+## for letters
+for char in range(0,alphabet_count):
+    password += rand.choice(alphabets)
+## for symbols
+for symbol in range(0,symbol_count):
+    password += rand.choice(symbols)
+print(f"Your new password is :- {password}")  
+'''
+'''
+## This is for the hard method
+password = [];
+## for number
+for num in range(0,number_count):
+    password += rand.choice(numbers)
+## for letters
+for char in range(0,alphabet_count):
+    password += rand.choice(alphabets)
+## for symbols
+for symbol in range(0,symbol_count):
+    password += rand.choice(symbols)
+rand.shuffle(password)
+newPassword = "".join(password) 
+print(f"Your new password is :- {newPassword}")  
+'''
