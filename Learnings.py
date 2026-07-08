@@ -285,6 +285,7 @@ print(f"Total Cost amounts to {totalAmount}");
 
 ## Final project for DAY3 =>
 ## treasure Game 
+'''
 import time as t
 print("Welcome to Treasure Island\nYour mission is to find the treasure!")
 direction = input("Left(L)/Right(R):- ")
@@ -323,5 +324,122 @@ elif(direction=="L" or direction=="l"):
                 print(f"{name} is the proud owner of the treasure")
             elif(door == "G" or door == "g"):
                 print("You have unleashed a deadly virus which has killed you instantly\n GAME OVER")
+                '''
+##########################################################################################################################
+### Day 4:- Randomization and Python List
+## Randomization :- to create a degree of unpredictablilty. 
+## This is created via Random module in python 
+## Computers are generally deterministic in nature meaning they work in a predictable manner
+## Python uses something called "Mersenne Twister" for generating random numbers
+## by running this code we can get the documentation
+'''
+import webbrowser as webb
+url_random = "https://docs.python.org/3/library/random.html"
+resources = "https://www.udemy.com/share/103J8C3@5X4F98BK-9gGlp3buD_tyLnpMinHJvQmUdsLddBftMp9ESSx2lcl2JJoqULUzSZl/"
+print(f"{url_random}")
+webb.open(url_random)
+webb.open(resources)
+'''
+'''
+import random as rand
+random_number = rand.randint(1,9999999)## generates a number between 1 and 9999999 both inclusive
+random_float = rand.random()## generates a number between 0 and 1
+print(f"A random number {random_number} and {random_float}")
+## Module => basically a function or a resuable piece of code.
+'''
+## Lists => is data structure  which is a collection of data
+## Example :- fruits
+''' 
+fruits = ["Cherry","Apple","Pear","MuskMelon","WaterMelon","Mango","Blueberry"]
+print(fruits[0:3])## prints 3 fruits form the list
+print(fruits[2])## prints pear(index 2)
+print(fruits[2][0])## Something like a 2D array in C but in this case we can have values with
+## different data types
+random_values = ["Mukund",3.14,24]
+print(random_values[0:-1])
+## This is how you basically use looping to travrse the loop
+for i in random_values:
+    print(i)
+## Indexing starts from 0 because lists comes from a concept called arrays which are basically
+## a list of contiguous memory locations =>  and the array starts from 0
+## items in a list can be changed
+random_values[0] = "Robert"
+fruits[2]="Jackfruit"
+print(random_values[0:-1])
+print(fruits[0:-1])
+import webbrowser as webb
+webb.open("")
+webb.open("https://docs.python.org/3/tutorial/datastructures.html")
+## this is to get all the methods which can be used on a list
+'''
+## Example 
+## Who is going to pay the bill
+'''
+import random as rand
+import time as t
+names = list()
+number = int(input("Enter the number of people present in gathering:- "))
+for i in range(number):
+    temp = input("Please enter name:- ")
+    names.append(temp)
+print("The following names have been entered")
+for i in names:
+    print(f"{i}")
+print("Please wait we are selecting a member\n")
+t.sleep(1)
+print(f"{names[rand.randint(0,number)]} please pay the bill")
+'''
+## Common issue / error :- Index out of range error. 
+## say there are 10 elements in the list and you ask for the 11th element that is when you get this error
+## this is what we call "INDEXX OUT OF RANGE" in C its something like segmentation fault
+'''fruits  = ["Apples","Oranges","Mangoes","BlueBerries","Strawberries"]
+vegetables=["Bringal","Potatoes","Spinach","Corriander","Cabbage","Cauliflower"]
+animalProducts = ["Chicken", "Eggs", "Milk","Cheese"]
+foodSuppliments = [fruits,vegetables,animalProducts]
+print(foodSuppliments)## this contains 3 lists something like a 2 dimensional array but not exactly that '''
+## Example :- Creating a Rock Paper Sissor game
+import random as rand
+rock = '''    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)'''
+paper = '''     _______
+---'    ____)____
+           ______)
+          _______)
+         _______)
+---.__________)'''
+scissors = '''     _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)'''
 
-        
+options = [rock,paper,scissors]
+userInput = input("Rock(R)/Paper(P)/Scissors(S):- ")
+computerInput = rand.randint(0,len(options)-1)
+print(f"Computer chose {options[computerInput]}")
+## Rock case
+if((userInput == "R" or userInput == "r") and computerInput == 0):
+    print("Its a draw")
+elif((userInput == "R" or userInput == "r") and computerInput == 1):
+    print("You Lose")
+elif((userInput == "R" or userInput == "r") and computerInput == 2):
+    print("You Win")
+## Paper case
+elif((userInput == "P" or userInput == "p") and computerInput == 1):
+    print("Its a draw")
+elif((userInput == "P" or userInput == "p") and computerInput == 2):
+    print("You Lose")
+elif((userInput == "P" or userInput == "p") and computerInput == 0):
+    print("you win")
+#Scissor case 
+elif((userInput == "S" or userInput == "s") and computerInput == 2):
+    print("Its a draw")
+elif((userInput == "S" or userInput == "s") and computerInput == 0):
+    print("You Lose")
+elif((userInput == "S" or userInput == "s") and computerInput == 1):
+    print("you win")
