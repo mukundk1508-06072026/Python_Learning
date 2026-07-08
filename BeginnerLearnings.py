@@ -398,7 +398,7 @@ animalProducts = ["Chicken", "Eggs", "Milk","Cheese"]
 foodSuppliments = [fruits,vegetables,animalProducts]
 print(foodSuppliments)## this contains 3 lists something like a 2 dimensional array but not exactly that '''
 ## Example :- Creating a Rock Paper Sissor game
-import random as rand
+## import random as rand
 rock = '''    _______
 ---'   ____)
       (_____)
@@ -417,7 +417,7 @@ scissors = '''     _______
        __________)
       (____)
 ---.__(___)'''
-
+'''
 options = [rock,paper,scissors]
 userInput = input("Rock(R)/Paper(P)/Scissors(S):- ")
 computerInput = rand.randint(0,len(options)-1)
@@ -442,4 +442,4 @@ elif((userInput == "S" or userInput == "s") and computerInput == 2):
 elif((userInput == "S" or userInput == "s") and computerInput == 0):
     print("You Lose")
 elif((userInput == "S" or userInput == "s") and computerInput == 1):
-    print("you win")
+    print("you win")'''
