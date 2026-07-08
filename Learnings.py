@@ -147,6 +147,7 @@ if(isUnhealthy == True):
     print("Please see a doctor");
 '''
 ## Mini Project :- Creating a tip calculator 
+'''
 totalAmount = float(input("Please enter the total bill:- "));
 isSplit = False;
 toTip = bool(input("Do you want to tip the person? yes :- type 1 +Enter  no :- press Enter:- "))
@@ -166,3 +167,161 @@ if(isSplit == True):
     print(f"the amount per person amounts to  {totalAmount}");
 else:
     print(f"Total amount to be paid is {totalAmount}")
+'''
+############################################################################################################
+## Day 3 :- Control Statement and logical operators, Code blocks and Scope
+## For conditional statements we use "if,else and elif"
+## the program written above is a excellent example of how we write Control Statements
+## example1:- getting a drivers licence 
+'''
+Age = int(input(" PLease enter age:- "))
+IsInterested = bool(input("Are you interested to get your licence? 1+Enter=> Yes / Enter for No:- "))
+if(IsInterested == True):
+    if(Age>=18):
+        print("You are eligible for your applying for your drivers licence")
+    else:
+        print(f"You are still a minor apply after {18-Age} year/years")
+else:
+    print("Thankyou for attending the survey")
+'''
+# Example 2:- digit related operations 
+'''number = int(input("PLease enter a number"))
+if(number%10 == 0):
+    print("The number you have selecected is a single digit one")
+else:
+    count = 0
+    sum = 0
+    print(f"number specified {number} is even ")if number%2 == 0 else print(f"number specified {number} is odd")
+    while number >0:
+        sum = sum + number%10
+        count = count+1
+        number = number//10
+    print(f"Number of digits present in the given number is {count}, sum of all digits is {sum}")
+'''
+## Nested if statements => an if statement present inside an if statement is what we call a nested of statement
+## Example :- Fare Charges 
+## Condition :- if the age of a person is 18 and able her can get on the fare
+## and second contition is if he has luggage he will have to pay 2 dollars per Kg
+'''
+print("Welcome of Raw and Rustic Ferry services")
+Age = int(input("Please enter your age:- "))
+Price = 0
+if(Age >18):
+    Price = 12
+    IsBaggage = bool(input("Is there any luggage?\n1+Enter=> Yes / Enter for No:- "))
+    if(IsBaggage == True):
+        weight = int(input("Please enter weight in Kg"))
+        Price = Price + weight*2
+    print(f"Total amount that has to be paid is {Price}");
+else:
+    print("You need to be accompanied with an adult")
+'''
+## if/else/elif Vs Multiple if's
+## 1) In the first case we are veryfing all the conditions : the ladder is not further
+## evaluated when one of the conditions is met
+## 2) In the second case all the cases ARE VERIFIED irrespective of which condition is matched 
+# Examole :- Ride fare 
+# Condition : based on height/age and if they want photographs to be made
+'''
+print("Welcome to Wonderla")
+height = float(input("Enter your height in cm:- "))
+totalAmount = 0
+if(height>=120):
+    Age = int(input("Please Enter your age:- "))
+    if(Age<12):
+        print("Please pay $5")
+        totalAmount +=5
+    elif(Age>18 and not(Age>=45 and Age<=55)): ## here we have incorporated a condiion where we are giving out free tickects for 
+        ## for people in a certain age group
+        print("Please pay $15")
+        totalAmount += 15
+    elif(Age>=12 and Age<=18):
+        print("Please pay $10")
+        totalAmount +=10
+    elif(Age>=45 and Age<=55):
+        print("Your tickets are free enjoy your midlife crises")
+        totalAmount = 0
+    isPhotograph = input("Do you want to take a photograph? Y/N:- ")
+    if(isPhotograph == "Y" or isPhotograph == "y"):
+        print("Please pay 3 dollars per photograph")
+        photoNumber = int(input("Enter number of Photographs:- "))
+        totalAmount += photoNumber*3
+    print(f"Your total cost has come to {totalAmount}")
+else:
+    print("You are too short to ride!!")
+'''
+## Pizza delivary Program
+## Condtion :- 
+## Small Pizza => $15
+## Medium Pizza => $20
+## Large Pizza => $25
+## Extra toppings => $5
+## Home Delivery/take away
+'''
+totalAmount = 0
+print("Welcome to Jabba the Pizza!")
+size = input("Please enter the pizza size?\n S,M or L:- ")
+if(size =="M" or size == "m" ):
+    totalAmount = 20
+elif(size == "S" or size == "s"):
+    totalAmount = 15
+elif(size == "L" or size == "l"):
+    totalAmount = 25
+print(f"cost:- {totalAmount}")
+isExtraToppings = input("Do you want extra toppings?\n Y/N :- ")
+if(isExtraToppings == "Y" or isExtraToppings == "y"):
+    totalAmount = totalAmount + 5
+print(f"Cost = {totalAmount}")
+isDelivery = input("Do you want it to be delivered\n Y/N:- ")
+if(isDelivery == "Y" or isDelivery == 'y'):
+    totalAmount = totalAmount + 10;
+print(f"Total Cost amounts to {totalAmount}");
+'''
+## here we are cheching multiple conditions using logical operators
+## they are based on something called truth tables but the just is
+## and => both conditions need to be true
+## or => one of the condition needs to be true 
+## not => the negation of the condition needs to be true 
+
+## Final project for DAY3 =>
+## treasure Game 
+import time as t
+print("Welcome to Treasure Island\nYour mission is to find the treasure!")
+direction = input("Left(L)/Right(R):- ")
+if(direction=="R" or direction == "r"):
+    print("You have fallen in a hole.\nGame over")
+elif(direction=="L" or direction=="l"):
+    direction = input("But there is a lake.Swim(S)/Wait(W)")
+    if(direction == "S" or direction == "s"):
+        print("You have been attacked by a crocodile\nGame Over")
+    elif(direction == "W" or direction == "w"):
+        print("Your boat has arrived")
+        direction = input("Please press enter to enter the boat")
+        print("You have entered the boat, lets go")
+        t.sleep(5)
+        print("Your have reached the shore\n")
+        direction = input("Left(L)/Right(R):- ")
+        if(direction == "L" or direction == "l"):
+            print("You have reached a forest and need to fight a tiger?")
+            action = input("What will you do?\n Run(R)/Fight(F)")
+            if(action == "F" or action == "f"):
+                print("You have no wepons hence lost to the tiger\n Game Over")
+            elif(action == "R" or action == "r"):
+                print("Wrong choice! the tiger has followed you and killed you\n Game Over")
+        elif(direction =="R" or direction == "r"):
+            print("You have reached a cabin\n what will you do ??")
+            action = input("Press Enter to open the cabin and get inside!")
+            print("Entering the cabin")
+            t.sleep(3)
+            print("Entered the cabin\n You see a green, red, blue door. What should I select?")
+            door = input("Red(R),Blue(B),Green(G):- ")
+            if(door == "R" or door == "r"):
+                print("The door leads to an inferno in which you have burned and died.\n GAME OVER")
+            elif(door == "B" or door == "b"):
+                print("The door leads to the treasure. Your win")
+                name = input("Please enter your name")
+                print(f"{name} is the proud owner of the treasure")
+            elif(door == "G" or door == "g"):
+                print("You have unleashed a deadly virus which has killed you instantly\n GAME OVER")
+
+        
