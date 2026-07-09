@@ -510,6 +510,7 @@ for num in range(1,maximumValue+1):
         print(num)
 '''
 ## Next Chalange => Creating a Password generator 
+'''
 import random as rand
 numbers = ['0','1','2','3','4','5','6','7','8','9']
 symbols = ['!','#','@','%','$','*']
@@ -523,7 +524,6 @@ print("Welcome to a random Password Generator")
 number_count = int(input("Please enter number count needed in password: "))
 symbol_count = int(input("Please enter symbols count needed in password: "))
 alphabet_count = int(input("Please enter alphabet count needed in password: "))
-'''
 ## this is where we are taking the easy approach 
 password = "";
 ## for number
@@ -553,3 +553,78 @@ rand.shuffle(password)
 newPassword = "".join(password) 
 print(f"Your new password is :- {newPassword}")  
 '''
+######################################################################################
+## Day6 :- Functions , while loop and an interesting project
+'''import webbrowser as webb
+webb.open("https://docs.python.org/3/library/functions.html")
+'''
+## This is the place where we can get the python documentation
+## Example :- Something which finds he area and perimeter of a given shape.
+## The dimensions must be user given.
+## for area
+'''
+def area (shape):
+    area = 0
+    if(shape.upper() == "C"):
+        radius = int(input("Please enter radius: "))
+        area = 3.14 * radius * radius
+    elif(shape.upper() == "R"):
+        lenght = int(input("please enter lenght: "))
+        breadth = int(input("please enter breadth: "))
+        area = lenght*breadth
+    elif(shape.upper() == "T"):
+        base = int(input("Please enter base: "))
+        height = int(input("Please enter height"))
+        area = (base*height)/2
+    elif(shape.upper() == "S"):
+        side = int(input("please enter side"))
+        area =side*side
+    return area
+## for type of triangle
+def triangleNature(dimensions):
+    if(len(set(dimensions)) == 1):
+        print("Equilateral Triangle")
+    elif(len(set(dimensions))<3):
+        print("Isosceles Triangle")
+    else:
+        print("Scalene Triangle")
+## for the perimeter of dimensions 
+def perimeter(shape,dimensions):
+    if(shape.upper() == "C" and len(dimension)!=2):
+        perimeter = 2* 3.14* dimensions[0]
+        print(f"Circle Perimeter and area :{perimeter} and {area(shape)}")
+    elif(shape.upper() == "S" and len(dimensions)!=2):
+        perimeter = 4*dimensions[0]
+        print(f"Square perimeter and area = {perimeter} and {area(shape)}")
+    elif(shape.upper() == "R" and len(dimensions)==2):
+        print(dimensions)
+        perimeter = 2*(sum(dimensions))
+        print(f"Perimeter and area of the rectangle = {perimeter} and {area(shape)}")
+    elif(shape.upper() == "T" and len(dimensions)==3):
+        print(dimensions)
+        perimeter = sum(dimensions)
+        ## here we are trying to check if the nature of triangle via dimensions 
+        triangleNature(dimensions)
+        print(f"Perimeter and area of the Triangle = {perimeter} and {area}")
+## this is for area where I will be taking the dimensions in the function and will be returning it back to main function
+dimension = []
+## this is for square/circle
+shape = input("Please enter shape\n Circle(C)/Square(S)/Rectangle(R)/Triangle(T): ")
+if(shape.upper() == "C" or shape.upper() =="S" ):
+    temp = int(input("Please enter radius/side: "))
+    dimension.append(temp);
+## this is for rectangle
+elif(shape.upper() == "R"):
+    for i in range(0,2):
+        temp = int(input("Please enter lenght/breadth: "))
+        dimension.append(temp);
+elif(shape.upper() == "T"):
+    for i in range(0,3):
+        temp = int(input("Please enter lenght/breadth: "))
+        dimension.append(temp);
+perimeter(shape,dimension)
+'''
+## Guide for Python Code
+''' 
+import webbrowser as webb
+webb.open("https://peps.python.org/pep-0008/")'''
