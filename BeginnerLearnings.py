@@ -628,3 +628,8 @@ perimeter(shape,dimension)
 ''' 
 import webbrowser as webb
 webb.open("https://peps.python.org/pep-0008/")'''
+##########################################################################################################################
+## Day 7 :- HANGMAN
+## With the skills we have learnt we will looking into how we can create this hangman game 
+## That will be present in another file called Hangman.py so please look into it for further clarity
+#################################################################################################################
