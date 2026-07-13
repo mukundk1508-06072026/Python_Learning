@@ -633,3 +633,165 @@ webb.open("https://peps.python.org/pep-0008/")'''
 ## With the skills we have learnt we will looking into how we can create this hangman game 
 ## That will be present in another file called Hangman.py so please look into it for further clarity
 #################################################################################################################
+## Day 8:- 
+'''
+import webbrowser as webb
+webb.open("https://waitbutwhy.com/2014/05/life-weeks.html");
+## This is what I need to replicate 
+def life_in_weeks(Age):
+    return Age*52
+
+def life_in_days(Age):
+    return Age*365
+
+def life_in_hours(Age):
+    return life_in_days(Age)*24
+
+def life_in_min(Age):
+    return life_in_hours(Age)*60
+
+def life_in_seconds(Age):
+    return life_in_min(Age)*60
+
+Age = int(input("Please enter your age: "))
+if(Age>0 and Age<90):
+    print(f"You have lived for {life_in_weeks(Age)} weeks;{life_in_days(Age)} days;{life_in_min(Age)} minutes;{life_in_seconds(Age)} seconds.")
+
+else:
+    print("Entered Invalid Age!!")
+
+'''
+## Difference between Positional Argurment VS Keyword Arguement
+## keyword arguements
+'''import time as t
+def greetings(name,location):
+    print(f"Hey{name} and welcome to {location}")
+
+name = input("Enter the name: ")
+location = input("Enter the location: ")
+## this is what you call keyword arguements ##
+greetings(name=name,location=location)
+t.sleep(2)
+greetings(location= location,name=name)
+t.sleep(2)
+## This is what you call positional arguements
+greetings(location,name)
+t.sleep(2)
+greetings(name,location)
+'''
+## Keyword arguement are more rebust as compared to positional arguements
+## Example :- Love Calender 
+#TO DO:- 1. Take both people's names and check for the number of times the letters in the word TRUE occurs.   
+# TO DO:- 2. Then check for the number of times the letters in the word LOVE occurs.   
+# TO DO :- 3. Then combine these numbers to make a 2 digit number and print it out. 
+'''def calculate_love_score(name1,name2):
+    ## must check the number of time letters in true occur
+    word = ['t','r','u','e']
+    True_totalCount = 0
+    for char in word:
+        count = 0
+        count = name1.count(char)+name2.count(char)
+        True_totalCount = count+True_totalCount
+        #print(f"{char} occurs {count} times")
+    word = ['l','o','v','e']
+    Love_totalCount = 0
+    for char in word:
+        count = 0
+        count = name1.count(char)+name2.count(char)
+        Love_totalCount = count + Love_totalCount
+        #print(f"{char} has been repeated{count} times")
+    print(f"{True_totalCount}{Love_totalCount}")
+ 
+
+name1 =input("Enter first name: ")
+name2 = input("Enter Second name: ")
+calculate_love_score(name1=name1,name2=name2)
+'''
+### Hangman Project ##
+'''import random as rand
+import webbrowser as webb
+## the following are the rules of hangman 
+##webb.open("https://en.wikipedia.org/wiki/Hangman_(game)")
+## the above is the wikkipedia link to thenhangman game
+# TODO 1 :-  Listing all the various words that make sense and putting it in a list 
+# TODO 2:- Generating a random number 
+# TODO 3:- Asking them to get a letter
+
+animalList = ["camel","dog","cat","squirrel","tiger","wolf","lion","deer","mouse","pig","parrot"]
+animal = rand.choice(animalList)
+placeholders = ""
+for position in range(0,len(animal)):
+    placeholders += "_"
+print(placeholders)
+chances = len(animal)
+status = False
+print(f"you have {chances} lives")
+correntLetters = []
+while(chances>0):
+    userGuess = input("Guess a letter: ").lower()
+    display = ""
+    ## here we need to check if the given letter is present /not 
+    for char in animal:
+        if(char == userGuess):
+            display+=char
+            correntLetters.append(userGuess)
+        elif(char in correntLetters):
+            display+= char
+        else:
+            display += "_"
+    print(display)
+    if(userGuess not in animal):
+        chances = chances -1
+
+    if(display.lower() == animal.lower()):
+        status = True
+        break
+if(status == True):
+    print("You Win") 
+    print(f"{animal}")   
+else:
+    print(f"You lose. The word is {animal}")   
+'''
+
+#### Project Ceaser Cipher ###
+## import webbrowser as webb
+## webb.open_new("https://www.w3schools.com/python/ref_list_index.asp")
+## this is going to the place you see what is needed 
+## The solution will be broken into 3 parts 
+## 1) The encription
+## 2) The decription 
+## once we have a working model/code => Restructure and code clean-up
+##
+'''alphabets = [
+    'a','b','c','d','e','f','g','h','i','j','k','l','m',
+    'n','o','p','q','r','s','t','u','v','w','x','y','z'
+]
+def encript(original_message,shift):
+    encripted_message = ""
+    for char in original_message:
+        encripted_message=encripted_message+alphabets[alphabets.index(char)+shift]
+    return encripted_message
+
+def decript(original_message,shift):
+    encripted_message = ""
+    for char in original_message:
+        encripted_message=encripted_message+alphabets[alphabets.index(char)-shift]
+    return encripted_message
+
+status = True
+while status==True:
+    operation=input("Please enter E for encript or D for Decript: ").lower()
+    if(operation!='e' and operation!='d'):
+        print("Exiting Program")
+        break
+    message = input("Please enter your message: ").lower()
+    shift = int(input("How far do you want to shift it : "))
+    if(operation == 'e'):
+        print(f"Your Encripted message = {encript(original_message=message,shift=shift)}")
+    elif(operation == 'd'):
+        print(f"Your Decripted message = {decript(original_message=message,shift=shift)}")
+    else:
+        print("Exiting Program")
+        break
+'''
+## This marks the end of day 8 ######
