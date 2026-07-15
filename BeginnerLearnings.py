@@ -908,3 +908,61 @@ if not participant_list:
     print(f"{item} has been removed from the auction")
 print(f"{last_bid} wins the {item} for {participant_list[last_bid]}")
 '''
+################################################################################################################
+## Day 9 => Functions with outputs
+'''
+def is_leap_year(year):
+    if year%400 == 0 :
+        return True
+    elif year%100 == 0:
+        return False
+    elif year%4 == 0:
+        return True
+    else:
+        return False
+    
+year = int(input("Please enter an year: "))
+IsLeapYear = is_leap_year(year=year)
+if IsLeapYear == True :
+    print(f"{year} is a leap year")
+else:
+    print(f"{year} is not a leap year")
+'''
+## Calculator Project ##
+'''def add(num1,num2):
+    return num1+num2
+
+def sub(num1,num2):
+    return num1-num2
+
+def mul(num1,num2):
+    return num1*num2
+
+def div(num1,num2):
+    return num1/num2
+
+print("Welcome to Calculator")
+num1 = int(input("Enter first number: "))
+status = True
+while status !=False:
+    operation = input("Enter Operation : +,-,*,/ : ")
+    num2 = int(input("Enter second number: "))
+    result = 0
+    if(operation == "+"):
+        result = add(num1=num1,num2=num2)
+    elif(operation == "-"):
+        result = sub(num1=num1,num2=num2)
+    elif(operation == "*"):
+        result = mul(num1=num1,num2=num2)
+    elif(operation == "/"):
+        result = div(num1=num1,num2=num2)
+    print(f"Result = {result}")
+    option = input("Do you want to proceed = N/Y: ")
+    if(option.upper() == "N"):
+        status = False
+    elif(option.upper() == "Y"):
+        num1 = result
+print(f"Your total result = {result}")
+'''
+##############################################################################
+## Day 11 :- Blackjack Capstone Project ##
