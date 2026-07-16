@@ -966,3 +966,71 @@ print(f"Your total result = {result}")
 '''
 ##############################################################################
 ## Day 11 :- Blackjack Capstone Project ##
+## The Sum of all cards must be less then 21, if the sum exceeds 21 its called a bust
+## all cards from 2 to 10 are the same as their face value
+## J,K,Q => will be counted as 10
+## Ace => 1/11 based which is specified by the user
+## The Dealer's second hand is concelled => basically hidden 
+## if our score == dealer score (DRAW)
+## if my score > dealer score <21 (WIN)
+## My score >21 ( BUST => you loose)
+## if my score < dealer <21 then you loose 
+## if sum total of dealer is <17 they can take a new card
+import random as rand
+cards = [11,2,3,4,5,6,7,8,9,10,10,10,10]
+def deal_card():
+    return rand.choice(cards)
+
+def calculate_score(cards):
+    score = 0
+    score = sum(cards)
+    if score ==21 and len(cards) == 2:
+        return 0
+    if 11 in cards and  score >21:
+        cards.remove(11)
+        cards.append(1)
+        score = sum(cards)
+    return score
+
+def compare(user_score,comp_score):
+    if(user_score == comp_score):
+        return "Draw"
+    elif(comp_score==0 or user_score>21):
+        return "Computer Wins"
+    elif(user_score==0 or comp_score>21):
+        return "You Win"
+    elif(user_score > comp_score):
+        return "You Win"
+    else:
+        return "You lose"
+    
+player_status = False
+player_card = []
+comp_card = []
+player_score = -1
+computer_score = -1
+for _ in range(2):
+    player_card.append(deal_card())
+    comp_card.append(deal_card())
+## This is for the player
+while player_status == False:
+    player_score = calculate_score(player_card)
+    computer_score = calculate_score(comp_card)
+    print(f"Users Cards:- {player_card}")
+    print(f"Computers Cards :- {comp_card[0]}")
+    if player_score == 0 or computer_score == 0 or player_score>21:
+        player_status = True
+    else:
+        should_redraw = input("Do you want to draw again: Y/N: ")
+        if should_redraw.upper() == 'Y':
+            player_card.append(deal_card())
+        else:
+            player_status = True
+while computer_score !=0 and computer_score<17:
+    comp_card.append(deal_card())
+    computer_score = calculate_score(comp_card)
+print(f"User Cards = {player_card}")
+print(f"Computer Card = {comp_card}")
+player_score = calculate_score(player_card)
+computer_score = calculate_score(comp_card)
+print(compare(user_score=player_score,comp_score=computer_score))
