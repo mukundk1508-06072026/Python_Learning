@@ -976,7 +976,7 @@ print(f"Your total result = {result}")
 ## My score >21 ( BUST => you loose)
 ## if my score < dealer <21 then you loose 
 ## if sum total of dealer is <17 they can take a new card
-import random as rand
+'''import random as rand
 cards = [11,2,3,4,5,6,7,8,9,10,10,10,10]
 def deal_card():
     return rand.choice(cards)
@@ -1033,4 +1033,49 @@ print(f"User Cards = {player_card}")
 print(f"Computer Card = {comp_card}")
 player_score = calculate_score(player_card)
 computer_score = calculate_score(comp_card)
-print(compare(user_score=player_score,comp_score=computer_score))
+print(compare(user_score=player_score,comp_score=computer_score))'''
+#######################################################################################
+## Day 12 Number Guessing Game ##
+## There will be 2 modes => easy and hard mode 
+## easy mode will have 10 lives 
+'''import random as rand
+chance = 10
+random_guess = rand.randint(0,100)
+print("Welcome to the guessing game!")
+choice = input("Enter the difficulty of the game. H/E: ")
+if choice.Upper == "H" :
+    chance = 5
+else :
+    chance = 10
+while chance!= 0:
+    userguess = int(input("Enter your guess: "))
+    if userguess > random_guess:
+        print("Too High")
+        chance = chance-1
+        print(f"Chances:{chance}")
+    elif userguess < random_guess:
+        print("Too Low")
+        chance = chance-1
+        print(f"Chances:{chance}")
+    elif userguess == random_guess:
+        print(f"You got it the answer is {random_guess}")
+        break;
+if chance == 0:
+    print(f"The actual number is {random_guess}. Your missed it. run again ")'''
+### BTW python does not have any block scope 
+## Example :- Prime number checker
+'''def prime_checker (number):
+    factor_list = []
+    if number == 1:
+        return f"Given number {number} is neither prime nor composite"
+    for i in range(1,number+1):
+        if number%i == 0:
+            factor_list.append(i)
+            continue
+    if(len(factor_list)==2):
+        return "Prime Number"
+    else:
+        return "Composite Number"
+number = int(input("Enter a number: "))
+print(prime_checker(number=number))'''
+############################################################################################################################################################
